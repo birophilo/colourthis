@@ -1,0 +1,33 @@
+{% load widget_tweaks %}
+
+  {% with form=user_form %}
+
+    {% if form.non_field_errors %}
+        <p>{{ form.non_field_errors }}</p>
+    {% endif %}
+      {% for field in form %}
+          <div class="form-group row {{ field.html_name }} {% if field.errors %}error{% endif %}">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-3" style="text-align: right; top:5px;">{{ field.label }}{% if field.field.required %}{% endif %}</label>
+            <div class="col-sm-6" style="max-width: 400px;">
+                {{ field|add_class:"form-control" }}
+                {% if field.errors %}
+                    <span class="help-inline">{{ field.errors.as_text }}</span>
+                {% endif %}
+            </div>
+          </div>
+      {% endfor %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <button class="primaryAction btn btn-success" type="submit">Save and Sign Up</button> &nbsp;
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+            <small>Forgot Password?</small>
+          </a> 
+        </div> 
+      </div>
+
+  {% endwith %}

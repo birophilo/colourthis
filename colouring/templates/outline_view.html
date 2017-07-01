@@ -1,0 +1,12 @@
+{% extends 'ct_base.html' %}
+
+{% block content %}
+
+<a href="{% url 'colouring_view' outline_picture.pk %}">
+  <div id="image_wrapper">
+    <img src="{{ outline_picture.image.url }}">
+    <button class="btn btn-danger" style="position:absolute; top: 70px; right: 20px;">Colour this</button>
+  </div>
+</a>
+
+{% endblock %}

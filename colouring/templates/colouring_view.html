@@ -1,0 +1,965 @@
+{% extends 'ct_base.html' %}
+{% load staticfiles %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+<script src="{% static 'javascript_colorpicker.js' %}"></script>
+
+<p></p>
+<canvas id="canvas" width="600" height="600" style="border:1px solid black;">
+your browser does not support the canvas tag </canvas>
+
+<div id="controls_wrapper">
+
+  <div id="picker_wrapper">
+
+    <div>
+      <div id="quickColor"></div>
+      <div id="staticColor"></div>
+    </div>
+
+    <div id="gradientBox">
+      <img id="gradientImg" src="{% static 'color_picker_gradient.png' %}" />
+      <img id="circle" src="{% static 'color_picker_circle.gif' %}" />
+    </div>
+    <div id="hueBarDiv">
+      <img id="pickerBarImg" src="{% static 'color_picker_bar.png' %}" />
+      <img id="arrows" src="{% static 'color_picker_arrows.gif' %}" />
+    </div>
+
+  </div>
+
+  <div id="palette_wrapper">
+
+    <div id = "p11" class = "palette" onclick = "get_target_colour('p11')"></div>
+    <div id = "p12" class = "palette" onclick = "get_target_colour('p12')"></div>
+    <div id = "p13" class = "palette" onclick = "get_target_colour('p13')"></div>
+    <div id = "p14" class = "palette" onclick = "get_target_colour('p14')"></div>
+    <div id = "p15" class = "palette" onclick = "get_target_colour('p15')"></div>
+    <div id = "p16" class = "palette" onclick = "get_target_colour('p16')"></div>
+    <div id = "p17" class = "palette" onclick = "get_target_colour('p17')"></div>
+    <div id = "p18" class = "palette" onclick = "get_target_colour('p18')"></div>
+    <div id = "p19" class = "palette" onclick = "get_target_colour('p19')"></div>
+    <div id = "p20" class = "palette" onclick = "get_target_colour('p20')"></div>
+    <div id = "p21" class = "palette" onclick = "get_target_colour('p21')"></div>
+    <div id = "p22" class = "palette" onclick = "get_target_colour('p22')"></div>
+    <div id = "p23" class = "palette" onclick = "get_target_colour('p23')"></div>
+    <div id = "p24" class = "palette" onclick = "get_target_colour('p24')"></div>
+    <div id = "p25" class = "palette" onclick = "get_target_colour('p25')"></div>
+    <div id = "p26" class = "palette" onclick = "get_target_colour('p26')"></div>
+    <div id = "p27" class = "palette" onclick = "get_target_colour('p27')"></div>
+    <div id = "p28" class = "palette" onclick = "get_target_colour('p28')"></div>
+    <div id = "p29" class = "palette" onclick = "get_target_colour('p29')"></div>
+    <div id = "p30" class = "palette" onclick = "get_target_colour('p30')"></div>
+    <div id = "p31" class = "palette" onclick = "get_target_colour('p31')"></div>
+    <div id = "p32" class = "palette" onclick = "get_target_colour('p32')"></div>
+    <div id = "p33" class = "palette" onclick = "get_target_colour('p33')"></div>
+    <div id = "p34" class = "palette" onclick = "get_target_colour('p34')"></div>
+    <div id = "p35" class = "palette" onclick = "get_target_colour('p35')"></div>
+    <div id = "p36" class = "palette" onclick = "get_target_colour('p36')"></div>
+    <div id = "p37" class = "palette" onclick = "get_target_colour('p37')"></div>
+    <div id = "p38" class = "palette" onclick = "get_target_colour('p38')"></div>
+    <div id = "p39" class = "palette" onclick = "get_target_colour('p39')"></div>
+    <div id = "p40" class = "palette" onclick = "get_target_colour('p40')"></div>
+    <div id = "p41" class = "palette" onclick = "get_target_colour('p41')"></div>
+    <div id = "p42" class = "palette" onclick = "get_target_colour('p42')"></div>
+    <div id = "p43" class = "palette" onclick = "get_target_colour('p43')"></div>
+    <div id = "p44" class = "palette" onclick = "get_target_colour('p44')"></div>
+    <div id = "p45" class = "palette" onclick = "get_target_colour('p45')"></div>
+    <div id = "p46" class = "palette" onclick = "get_target_colour('p46')"></div>
+    <div id = "p47" class = "palette" onclick = "get_target_colour('p47')"></div>
+    <div id = "p48" class = "palette" onclick = "get_target_colour('p48')"></div>
+    <div id = "p49" class = "palette" onclick = "get_target_colour('p49')"></div>
+    <div id = "p50" class = "palette" onclick = "get_target_colour('p50')"></div>
+    <div id = "p51" class = "palette" onclick = "get_target_colour('p51')"></div>
+    <div id = "p52" class = "palette" onclick = "get_target_colour('p52')"></div>
+    <div id = "p53" class = "palette" onclick = "get_target_colour('p53')"></div>
+    <div id = "p54" class = "palette" onclick = "get_target_colour('p54')"></div>
+    <div id = "p55" class = "palette" onclick = "get_target_colour('p55')"></div>
+    <div id = "p56" class = "palette" onclick = "get_target_colour('p56')"></div>
+    <div id = "p57" class = "palette" onclick = "get_target_colour('p57')"></div>
+    <div id = "p58" class = "palette" onclick = "get_target_colour('p58')"></div>
+    <div id = "p59" class = "palette" onclick = "get_target_colour('p59')"></div>
+    <div id = "p60" class = "palette" onclick = "get_target_colour('p60')"></div>
+    <div id = "p61" class = "palette" onclick = "get_target_colour('p61')"></div>
+    <div id = "p62" class = "palette" onclick = "get_target_colour('p62')"></div>
+    <div id = "p63" class = "palette" onclick = "get_target_colour('p63')"></div>
+    <div id = "p64" class = "palette" onclick = "get_target_colour('p64')"></div>
+    <div id = "p65" class = "palette" onclick = "get_target_colour('p65')"></div>
+    <div id = "p66" class = "palette" onclick = "get_target_colour('p66')"></div>
+    <div id = "p67" class = "palette" onclick = "get_target_colour('p67')"></div>
+    <div id = "p68" class = "palette" onclick = "get_target_colour('p68')"></div>
+    <div id = "p69" class = "palette" onclick = "get_target_colour('p69')"></div>
+    <div id = "p70" class = "palette" onclick = "get_target_colour('p70')"></div>
+
+  </div>
+
+  <div id="picker_values_wrapper">
+
+    <table id="palette_values" width="100%" style="font-size:80%;">
+    <tr>
+      <td>Red: </td>
+      <td>
+        <input type="text" id="redBox" class="palette_value_input form-control" onchange="redBoxChanged();" />
+      </td>
+      <td>Hue: </td>
+      <td>
+        <input type="text" id="hueBox" class="palette_value_input form-control" onchange="hueBoxChanged();" />
+      </td>
+    </tr>
+    <tr>
+      <td>Green: </td>
+      <td>
+        <input type="text" id="greenBox" class="palette_value_input form-control" onchange="greenBoxChanged();" />
+      </td>
+      <td>Sat: </td>
+      <td>
+        <input size="7" type="text" id="saturationBox" class="palette_value_input form-control" onchange="saturationBoxChanged();" />
+      </td>
+    </tr>
+    <tr>
+      <td>Blue: </td>
+      <td>
+        <input type="text" id="blueBox" class="palette_value_input form-control" onchange="blueBoxChanged();" />
+      </td>
+      <td>Value: </td>
+      <td>
+        <input size="7" type="text" id="valueBox" class="palette_value_input form-control" onchange="valueBoxChanged();" />
+      </td>
+    </tr>
+    <tr>
+      <td>Hex: </td>
+      <td colspan="3">
+        <input size="8" style="width: 100px;" type="text" id="hexBox" class="palette_value_input form-control" onchange="hexBoxChanged();">
+      </td>
+    </tr>
+
+  </table>
+
+  </div>
+   
+  <div id="palette_values_tabs">
+    <div id="palette_tab">palette
+    </div>
+    <div id="values_tab">numbers
+    </div>
+  </div>
+
+  <div class="controls_button_wrapper" id="palette_upper_icons" style="width: 260px;">
+
+      <div class="upper_icon_holder" onclick="undo_last()" style="left: 0px;">
+        <span class="canvas_icon fa fa-2x fa-undo" id="palette_undo" title="undo"></span>
+        <span class="upper_icon_label" style="left: 14px;">undo</span>
+      </div>
+      <div class="upper_icon_holder" id="lock_button" onclick="lock_palette()" style="left: 65px;">
+        <span class="canvas_icon fa fa-2x fa-unlock-alt" id="lock_palette" title="lock palette"></span>
+        <span class="upper_icon_label" id="lock_icon_label" style="left: 17px;">lock</span>
+      </div>
+      <div class="upper_icon_holder" id="match_button" onclick="match_canvas_colour()" style="left: 130px;">
+        <span class="canvas_icon fa fa-2x fa-crosshairs" id="match_canvas_colour" title="match colour"></span>
+        <span class="upper_icon_label" id="match_button_label" style="left: 11px;">match</span>
+      </div>
+      <div class="upper_icon_holder" onclick="random_colour()" style="left: 195px;">
+        <span class="canvas_icon fa fa-2x fa-asterisk" id="palette_random_colour" title="random colour"></span>
+        <span class="upper_icon_label" style="left: 9px;">random</span>
+      </div>
+      
+  </div>
+
+  <a href data-toggle="modal" data-target="#save_and_signup_modal" style="display: block; height: 40px;">
+  <div class="controls_button_wrapper" id="palette_save_button">&nbsp;
+  {% if user.is_authenticated %}
+          <span id="palette_save_icon" class="canvas_icon fa fa-2x fa-cloud-upload" style="font-size: 25px" title="save"></span>
+          <span id="save_icon_label">save</a>
+    {% else %}
+          <span id="palette_save_icon" class="canvas_icon fa fa-2x fa-cloud-upload" style="font-size: 25px" title="save"></span>
+          <span id="save_icon_label">save</a>
+    {% endif %}
+  </div>
+  </a>
+
+    <br/><br/>
+
+        <!--form name="stringmaker" method="POST" onsubmit="string_to_form()" action="/canvas_upload_success/">{% csrf_token %}
+            <input type="hidden" name="text_string" value="sending text"><br/>
+            <input type="hidden" name="original_id" value="{{ picture.id }}">
+            <p>
+            Give the image a name: <input type="text" name="image_name">
+            <br/>
+
+            {% if user.is_authenticated %}
+                <input type="submit" value="SAVE" onsubmit="string_to_form()"></p>
+            {% else %}
+                <input type="button" value="SAVE" onclick="alert('You must be logged in to save pictures.  Create a username now - it\'s quick and free')">
+            {% endif %}
+        </form-->
+  </div>
+
+</div>
+
+  <br />
+
+
+  </div>
+
+  <div id="palette_side_tab"><span id="side_tab_chevron" class="fa fa-2x fa-chevron-left"></span></div>
+ 
+    
+</div>
+
+<br/>
+<div id="outline_info_wrapper">Picture information:
+    <p>
+        Created by: {{ picture.owner }}
+    </p>
+    <p>
+        {{ picture.colourpicture_set.count }} have coloured this.  They are:
+        <br/>
+        <br/>
+        {% for pic in picture.colourpicture_set.all %}
+            <img src="{{ pic.image.url }}" style="display:inline; float:left;" width="100">
+        {% endfor %}
+        
+    </p>
+</div>
+
+<div id="save_and_signup_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Save Picture</h4>
+        </div>
+        <div class="modal-body this_class_here">
+          {% if not user.is_authenticated %}
+          <p>
+           Sign up to save your picture - it's quick and free
+          </p>
+
+          <div class="row">
+
+    <form class="login" method="POST" action="{% url 'colouring_view' outline_picture.pk %}" class="form-horizontal">{% csrf_token %}
+    {% include 'partials/user_signup_form.html' %}
+
+    {{ image_form.as_p }}
+
+    </form>
+
+  </div>
+          <br/>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</p>
+<p></p>
+
+<script>
+
+var pixel, pix;
+var stack = []; 
+var left_to_colour = false;
+var right_to_colour = false;
+var start_red, start_green, start_blue;
+
+var cp_hue = 10;
+var cp_red, cp_green, cp_blue;
+var palette_locked = false;
+
+var action_history = [];             // this variable is for a basic undo facility
+var matching_mode_on = false;
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+var image = new Image();  
+image.src = "{{ outline_picture.image.url }}";  
+ 
+canvas.setAttribute("width", image.width);         // resize the canvas to fit the image loaded
+canvas.setAttribute("height", image.height);
+canvas.style.width = image.width;
+canvas.style.height = image.height;
+
+context.drawImage(image, 0, 0);  
+
+var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+ 
+canvas.onclick = colour;
+ 
+
+function colour(e) {
+
+  var x = e.pageX - canvas.offsetLeft;
+  var y = e.pageY - canvas.offsetTop;
+
+  var pixel = (y * imgData.width + x) * 4;
+  start_red = imgData.data[pixel];
+  start_green = imgData.data[pixel+1];
+  start_blue = imgData.data[pixel+2];
+
+  // do nothing if start pixel is selected colour
+  var selected_box = document.getElementById("staticColor");
+  var boxRGB = selected_box.style.backgroundColor;
+  var parseRGB = boxRGB.match(/\d+/g);
+  var selected_red = Number(parseRGB[0]);
+  var selected_green = Number(parseRGB[1]);
+  var selected_blue = Number(parseRGB[2]);
+  if (start_red == selected_red && start_green == selected_green && start_blue == selected_blue) {
+      return;
+  }     
+
+  // do nothing if start pixel is reserved outline colour - currently rgb(0,0,0) but change to rgb(0,0,1)? or not
+  if (start_red == 0 && start_green == 0 && start_blue == 0) {
+    return;
+  }
+
+  // do not change canvas if match button is selected
+  if (matching_mode_on) {
+    currentColor = Colors.ColorFromRGB(start_red, start_green, start_blue);
+    colorChanged('box');
+    return change_palette();
+  }
+
+  // if the selected colour is pure black - rgb(0,0,0) - change it to rgb(0,1,0) to avoid conflicting with
+  // outline colour
+  if (targetRed == 0 && targetGreen == 0 && targetBlue == 0) {
+    targetGreen = 1;
+  }
+
+  stack.push(pixel);
+  action_history.push([pixel, start_red, start_green, start_blue]);  // (For Undo: save start position and colour to action history) 
+
+    while (stack.length > 0) { 
+
+     left_to_colour = false;
+     right_to_colour = false;
+     pix = stack.pop();
+
+         while (pix >= 0 && match_start_colour(pix)) {  // this while loop finds the top bound to colour
+          pix -= imgData.width * 4;
+      }
+
+     pix += imgData.width * 4;
+
+
+     while (match_start_colour(pix))  {     // this while loop colours down the line
+
+      if (match_start_colour(pix-4) && left_to_colour == false && (pix-4) % (imgData.width*4) != (imgData.width*4 - 4)) {
+
+       stack.push(pix-4);
+       left_to_colour = true;
+   }
+   
+      else if (!match_start_colour(pix-4)) {
+   
+       left_to_colour = false;
+   
+      }
+   
+      if (match_start_colour(pix+4) && right_to_colour == false && (pix+4) % (imgData.width*4) != 0) {
+
+       stack.push(pix+4);
+       right_to_colour = true;
+   }
+
+      else if (!match_start_colour(pix+4)) {
+   
+       right_to_colour = false;
+   
+      }
+
+      imgData.data[pix] = targetRed;
+      imgData.data[pix+1] = targetGreen;
+      imgData.data[pix+2] = targetBlue;
+
+         pix += imgData.width * 4;
+
+     }
+
+  }
+
+  context.putImageData(imgData, 0, 0);
+
+}
+
+
+function undo_last() {
+
+ 
+ last_info = action_history.pop();
+ pixel = last_info[0];
+ 
+ stack.push(pixel);
+ 
+ start_red = imgData.data[pixel];
+ start_green = imgData.data[pixel+1];
+ start_blue = imgData.data[pixel+2];
+ 
+ while (stack.length > 0) { 
+ 
+ left_to_colour = false;
+ right_to_colour = false;
+ pix = stack.pop();
+ 
+ while (pix >= 0 && match_start_colour(pix)) {          // this while loop finds the top bound to colour
+  pix -= imgData.width * 4;
+  }
+ pix += imgData.width * 4;
+ 
+ while (match_start_colour(pix))  { // this while loop colours down the line
+ 
+  if (match_start_colour(pix-4) && left_to_colour == false && (pix-4) % (imgData.width*4) != (imgData.width*4 - 4)) {
+   stack.push(pix-4);
+   left_to_colour = true;
+   }  
+  else if (!match_start_colour(pix-4)) {  
+   left_to_colour = false;  
+  }  
+  if (match_start_colour(pix+4) && right_to_colour == false && (pix+4) % (imgData.width*4) != 0) { 
+   stack.push(pix+4);
+   right_to_colour = true;
+   }
+  else if (!match_start_colour(pix+4)) {  
+   right_to_colour = false;  
+  }
+  imgData.data[pix] = last_info[1];
+  imgData.data[pix+1] = last_info[2];
+  imgData.data[pix+2] = last_info[3];
+ pix += imgData.width * 4;
+ } 
+}
+ context.putImageData(imgData, 0, 0);
+ 
+}
+
+
+function match_start_colour(pxx) {
+
+ if (imgData.data[pxx] == start_red && imgData.data[pxx+1] == start_green && imgData.data[pxx+2] == start_blue) {
+  return true;
+ }
+ else {
+  return false;
+ } 
+ 
+}
+
+function get_target_colour(box) {
+
+ var the_box = document.getElementById(box);
+ var box_colour = window.getComputedStyle(the_box, null).getPropertyValue("background-color");
+ var parseRGB = box_colour.match(/\d+/g);
+ var r = Number(parseRGB[0]);
+ var g = Number(parseRGB[1]);
+ var b = Number(parseRGB[2]);
+ currentColor = Colors.ColorFromRGB(r,g,b);
+ colorChanged('box');
+ 
+}
+
+
+function change_palette() {
+
+var selected_box = document.getElementById("staticColor");
+var boxRGB = selected_box.style.backgroundColor;
+var parseRGB = boxRGB.match(/\d+/g);
+
+var red = Number(parseRGB[0]);
+var green = Number(parseRGB[1]);
+var blue = Number(parseRGB[2]);
+
+var red_comp = 255 - red;
+var green_comp = 255 - green;
+var blue_comp = 255 - blue;
+
+var hue;
+var lightness;
+var saturation;
+
+var xred = red/255;
+var xgreen = green/255;
+var xblue = blue/255;
+
+var Min = Math.min(xred, xgreen, xblue);   //Min. value of RGB
+var Max = Math.max(xred, xgreen, xblue);   //Max. value of RGB
+var delta_Max = Max - Min;            //Delta RGB value
+
+lightness = (Max + Min)/2;
+
+if (delta_Max == 0) {                   //This is a gray, no chroma... 
+   hue = 0;                             //HSL results from 0 to 1
+   saturation = 0;
+} else {                                   //Chromatic data... 
+ if (lightness < 0.5) {
+  saturation = delta_Max/(Max + Min);
+  }
+ else {
+  saturation = delta_Max/(2 - Max - Min);
+  }
+
+   var delta_R = ( ((Max - xred)/6) + (delta_Max/2) ) / delta_Max;
+   var delta_G = ( ((Max - xgreen)/6) + (delta_Max/2) ) / delta_Max;
+   var delta_B = ( ((Max - xblue)/6) + (delta_Max/2) ) / delta_Max;
+
+   if (xred == Max) { 
+  hue = delta_B - delta_G;
+  }
+   else if (xgreen == Max) {
+  hue = (1/3) + delta_R - delta_B;
+  }
+   else if (xblue == Max) {
+  hue = (2/3) + delta_G - delta_R;
+  }
+
+   if (hue < 0) {
+  hue += 1;
+  }
+   if (hue > 1) {
+  hue -= 1;
+  }
+}
+
+hue = Math.round(hue * 360);
+saturation *= 100;
+saturation = Math.round(saturation);
+lightness *= 100;
+lightness = Math.round(lightness);
+
+var hex = red.toString(16) + green.toString(16) + blue.toString(16);
+cp_hue = hue;
+console.log("cp_hue is " + cp_hue);
+
+// this function works out the gap between two complementary colour values (R, G or B)
+
+function comp_gap(colour, col_comp, percentage) {
+ 
+   var col_diff = Math.abs(colour - col_comp)
+   if (colour > col_comp) {
+      return colour - col_diff * percentage;
+      }
+   else {
+      return colour + col_diff * percentage;
+      }
+   
+}
+
+comp_gap(red, red_comp, 0.5);
+
+var selected_box = document.getElementById("staticColor");
+selected_box.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+if (palette_locked == true) {
+
+    return;
+    
+    }
+    
+else {
+
+var p11 = document.getElementById("p11");
+p11.style.backgroundColor = "hsl(20, 70%, 50%)";
+
+var p12 = document.getElementById("p12");
+p12.style.backgroundColor = "hsl(50, 70%, 50%)";
+
+var p13 = document.getElementById("p13");
+p13.style.backgroundColor = "hsl(80, 70%, 50%)";
+
+var p14 = document.getElementById("p14");
+p14.style.backgroundColor = "hsl(110, 70%, 50%)";
+
+var p15 = document.getElementById("p15");
+p15.style.backgroundColor = "hsl(140, 70%, 50%)";
+
+var p16 = document.getElementById("p16");
+p16.style.backgroundColor = "hsl(170, 70%, 50%)";
+
+var p17 = document.getElementById("p17");
+p17.style.backgroundColor = "hsl(200, 70%, 50%)";
+
+var p18 = document.getElementById("p18");
+p18.style.backgroundColor = "hsl(230, 70%, 50%)";
+
+var p19 = document.getElementById("p19");
+p19.style.backgroundColor = "hsl(260, 70%, 50%)";
+
+var p20 = document.getElementById("p20");
+p20.style.backgroundColor = "hsl(290, 70%, 50%)";
+
+
+// different complementary hues
+
+var p21 = document.getElementById("p21");
+p21.style.backgroundColor = "hsl(" + hue + ", " + saturation + "%, " + lightness + "%)";
+
+var p22 = document.getElementById("p22");
+p22.style.backgroundColor = "hsl(" + (hue+90) + ", " + saturation + "%, " + lightness + "%)";
+
+var p23 = document.getElementById("p23");
+p23.style.backgroundColor = "hsl(" + (hue+120) + ", " + saturation + "%, " + lightness + "%)";
+
+var p24 = document.getElementById("p24");
+p24.style.backgroundColor = "hsl(" + (hue+180) + ", " + saturation + "%, " + lightness + "%)";
+
+var p25 = document.getElementById("p25");
+p25.style.backgroundColor = "hsl(" + (hue+240) + ", " + saturation + "%, " + lightness + "%)";
+
+var p26 = document.getElementById("p26");
+p26.style.backgroundColor = "hsl(" + (hue+270) + ", " + saturation + "%, " + lightness + "%)";
+
+// split complementaries, set to plus and minus 25 hue of the complement
+
+var p27 = document.getElementById("p27");
+p27.style.backgroundColor = "hsl(" + (hue+(180-25)) + ", " + saturation + "%, " + lightness + "%)";
+
+var p28 = document.getElementById("p28");
+p28.style.backgroundColor = "hsl(" + (hue+(180+25)) + ", " + saturation + "%, " + lightness + "%)";
+
+// proximate hues, set to plus and minus 25 hue of the original
+
+var p29 = document.getElementById("p29");
+p29.style.backgroundColor = "hsl(" + (hue-25) + ", " + saturation + "%, " + lightness + "%)";
+
+var p30 = document.getElementById("p30");
+p30.style.backgroundColor = "hsl(" + (hue+25) + ", " + saturation + "%, " + lightness + "%)";
+
+
+// progressively darker rgb in proportion towards black
+
+var p31 = document.getElementById("p31");
+p31.style.backgroundColor = "rgb(" + Math.round(red) + "," + Math.round(green) + "," + Math.round(blue) + ")";
+
+var p32 = document.getElementById("p32");
+p32.style.backgroundColor = "rgb(" + Math.round(red-red*0.1) + "," + Math.round(green-green*0.1) + "," + Math.round(blue-blue*0.1) + ")";
+
+var p33 = document.getElementById("p33");
+p33.style.backgroundColor = "rgb(" + Math.round(red-red*0.2) + "," + Math.round(green-green*0.2) + "," + Math.round(blue-blue*0.2) + ")";
+
+var p34 = document.getElementById("p34");
+p34.style.backgroundColor = "rgb(" + Math.round(red-red*0.3) + "," + Math.round(green-green*0.3) + "," + Math.round(blue-blue*0.3) + ")";
+
+var p35 = document.getElementById("p35");
+p35.style.backgroundColor = "rgb(" + Math.round(red-red*0.4) + "," + Math.round(green-green*0.4) + "," + Math.round(blue-blue*0.4) + ")";
+
+var p36 = document.getElementById("p36");
+p36.style.backgroundColor = "rgb(" + Math.round(red-red*0.5) + "," + Math.round(green-green*0.5) + "," + Math.round(blue-blue*0.5) + ")";
+
+var p37 = document.getElementById("p37");
+p37.style.backgroundColor = "rgb(" + Math.round(red-red*0.6) + "," + Math.round(green-green*0.6) + "," + Math.round(blue-blue*0.6) + ")";
+
+var p38 = document.getElementById("p38");
+p38.style.backgroundColor = "rgb(" + Math.round(red-red*0.7) + "," + Math.round(green-green*0.7) + "," + Math.round(blue-blue*0.7) + ")";
+
+var p39 = document.getElementById("p39");
+p39.style.backgroundColor = "rgb(" + Math.round(red-red*0.8) + "," + Math.round(green-green*0.8) + "," + Math.round(blue-blue*0.8) + ")";
+
+var p40 = document.getElementById("p40");
+p40.style.backgroundColor = "rgb(" + Math.round(red-red*0.9) + "," + Math.round(green-green*0.9) + "," + Math.round(blue-blue*0.9) + ")";
+
+// progressively lighter rgb in proportion towards white
+
+var p41 = document.getElementById("p41");
+p41.style.backgroundColor = "rgb(" + Math.round(red) + "," + Math.round(green) + "," + Math.round(blue) + ")";
+
+var p42 = document.getElementById("p42");
+p42.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.1) + "," + Math.round(green+(255-green)*0.1) + "," + Math.round(blue+(255-blue)*0.1) + ")";
+
+var p43 = document.getElementById("p43");
+p43.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.2) + "," + Math.round(green+(255-green)*0.2) + "," + Math.round(blue+(255-blue)*0.2) + ")";
+
+var p44 = document.getElementById("p44");
+p44.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.3) + "," + Math.round(green+(255-green)*0.3) + "," + Math.round(blue+(255-blue)*0.3) + ")";
+
+var p45 = document.getElementById("p45");
+p45.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.4) + "," + Math.round(green+(255-green)*0.4) + "," + Math.round(blue+(255-blue)*0.4) + ")";
+
+var p46 = document.getElementById("p46");
+p46.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.5) + "," + Math.round(green+(255-green)*0.5) + "," + Math.round(blue+(255-blue)*0.5) + ")";
+
+var p47 = document.getElementById("p47");
+p47.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.6) + "," + Math.round(green+(255-green)*0.6) + "," + Math.round(blue+(255-blue)*0.6) + ")";
+
+var p48 = document.getElementById("p48");
+p48.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.7) + "," + Math.round(green+(255-green)*0.7) + "," + Math.round(blue+(255-blue)*0.7) + ")";
+
+var p49 = document.getElementById("p49");
+p49.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.8) + "," + Math.round(green+(255-green)*0.8) + "," + Math.round(blue+(255-blue)*0.8) + ")";
+
+var p50 = document.getElementById("p50");
+p50.style.backgroundColor = "rgb(" + Math.round(red+(255-red)*0.9) + "," + Math.round(green+(255-green)*0.9) + "," + Math.round(blue+(255-blue)*0.9) + ")";
+
+// transition from selected colour to its RGB complement
+
+var p51 = document.getElementById("p51");
+p51.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.1)) + "," + Math.round(comp_gap(green, green_comp, 0.1)) + "," + Math.round(comp_gap(blue, blue_comp, 0.1)) + ")";
+
+var p52 = document.getElementById("p52");
+p52.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.2)) + "," + Math.round(comp_gap(green, green_comp, 0.2)) + "," + Math.round(comp_gap(blue, blue_comp, 0.2)) + ")";
+
+var p53 = document.getElementById("p53");
+p53.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.3)) + "," + Math.round(comp_gap(green, green_comp, 0.3)) + "," + Math.round(comp_gap(blue, blue_comp, 0.3)) + ")";
+
+var p54 = document.getElementById("p54");
+p54.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.4)) + "," + Math.round(comp_gap(green, green_comp, 0.4)) + "," + Math.round(comp_gap(blue, blue_comp, 0.4)) + ")";
+
+var p55 = document.getElementById("p55");
+p55.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.5)) + "," + Math.round(comp_gap(green, green_comp, 0.5)) + "," + Math.round(comp_gap(blue, blue_comp, 0.5)) + ")";
+
+var p56 = document.getElementById("p56");
+p56.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.6)) + "," + Math.round(comp_gap(green, green_comp, 0.6)) + "," + Math.round(comp_gap(blue, blue_comp, 0.6)) + ")";
+
+var p57 = document.getElementById("p57");
+p57.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.7)) + "," + Math.round(comp_gap(green, green_comp, 0.7)) + "," + Math.round(comp_gap(blue, blue_comp, 0.7)) + ")";
+
+var p58 = document.getElementById("p58");
+p58.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.8)) + "," + Math.round(comp_gap(green, green_comp, 0.8)) + "," + Math.round(comp_gap(blue, blue_comp, 0.8)) + ")";
+
+var p59 = document.getElementById("p59");
+p59.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 0.9)) + "," + Math.round(comp_gap(green, green_comp, 0.9)) + "," + Math.round(comp_gap(blue, blue_comp, 0.9)) + ")";
+
+var p60 = document.getElementById("p60");
+p60.style.backgroundColor = "rgb(" + Math.round(comp_gap(red, red_comp, 1.0)) + "," + Math.round(comp_gap(green, green_comp, 1.0)) + "," + Math.round(comp_gap(blue, blue_comp, 1.0)) + ")";
+
+var p61 = document.getElementById("p61");
+p61.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.1) + "%, "+ lightness + "%)";
+
+var p62 = document.getElementById("p62");
+p62.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.2) + "%, "+ lightness + "%)";
+
+var p63 = document.getElementById("p63");
+p63.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.3) + "%, "+ lightness + "%)";
+
+var p64 = document.getElementById("p64");
+p64.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.4) + "%, "+ lightness + "%)";
+
+var p65 = document.getElementById("p65");
+p65.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.5) + "%, "+ lightness + "%)";
+
+var p66 = document.getElementById("p66");
+p66.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.6) + "%, "+ lightness + "%)";
+
+var p67 = document.getElementById("p67");
+p67.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.7) + "%, "+ lightness + "%)";
+
+var p68 = document.getElementById("p68");
+p68.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.8) + "%, "+ lightness + "%)";
+
+var p69 = document.getElementById("p69");
+p69.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)*0.9) + "%, "+ lightness + "%)";
+
+var p70 = document.getElementById("p70");
+p70.style.backgroundColor = "hsl(" + hue + ", " + (saturation+(100-saturation)) + "%, "+ lightness + "%)";
+
+}
+
+}
+
+function send_request(){
+    var request = new XMLHttpRequest();
+    request.open("POST", "../receive_ajax/");
+    request.setRequestHeader("Content-Type", "text/html");
+  //  var canvas_data = canvas.toDataURL("image/png");
+    request.send("hello");
+}
+
+function string_to_form(){
+    var canvas_data = canvas.toDataURL("image/png");
+    var text_field = document.forms.stringmaker.text_string;
+    text_field.setAttribute("value", canvas_data);
+    console.log(text_field.value)
+ //   send_request()
+}
+
+
+function calculateRGB(hue, saturation, value)
+    {
+      cp_red = value;
+      cp_green = value;
+      cp_blue = value;
+     
+      if(value == 0 || saturation == 0)
+        return;
+     
+      var tHue = (hue / 60);
+      var i = Math.floor(tHue);
+      var f = tHue - i;
+      var p = value * (1 - saturation);
+      var q = value * (1 - saturation * f);
+      var t = value * (1 - saturation * (1 - f));
+      switch(i)
+      {
+        case 0:
+          cp_red = value; cp_green = t; cp_blue = p;
+          break;
+        case 1:
+          cp_red = q; cp_green = value; cp_blue = p;
+          break;
+        case 2:
+          cp_red = p; cp_green = value; cp_blue = t;
+          break;
+        case 3:
+          cp_red = p; cp_green = q; cp_blue = value;
+          break;
+        case 4:
+          cp_red = t; cp_green = p; cp_blue = value;
+          break;
+        default:
+          cp_red = value; cp_green = p; cp_blue = q;
+          break;
+      }
+    
+    cp_red = Math.round(cp_red*255);
+    cp_green = Math.round(cp_green*255);
+    cp_blue = Math.round(cp_blue*255);
+    
+    }
+
+var turn_blackwhite = function() {
+
+    var canvas = document.getElementById("Canvas");  
+    var context = canvas.getContext("2d");  
+    var imageData = context.getImageData(0, 0, 600, 600);  
+    var pixels = imageData.data;  
+
+    for (var i = 0, n = pixels.length; i < n; i += 4) {  
+    
+        if (pixels[i] <= 120 || pixels[i+1] <= 120 || pixels[i+2] <=120) {
+            pixels[i] = 0;
+            pixels[i+1] = 0;
+            pixels[i+2] = 0;
+        } else {
+            pixels[i] = 255;
+            pixels[i+1] = 255;
+            pixels[i+2] = 255;
+        }
+
+    }
+    context.putImageData(imageData, 0, 0);
+}
+
+fixGradientImg();
+
+function random256() {
+    return Math.floor(Math.random()*256)
+}
+
+var targetRed, targetGreen, targetBlue;
+var currentColor;
+
+function random_colour() {
+    targetRed = random256();
+    targetGreen = random256();
+    targetBlue = random256();
+    currentColor = Colors.ColorFromRGB(targetRed, targetGreen, targetBlue);
+    colorChanged('box');
+    change_palette();
+}
+
+random_colour();
+
+var currentColor = Colors.ColorFromRGB(targetRed, targetGreen, targetBlue);
+new dragObject("arrows", "hueBarDiv", arrowsLowBounds, arrowsUpBounds, arrowsDown, arrowsMoved, endMovement);
+new dragObject("circle", "gradientBox", circleLowBounds, circleUpBounds, circleDown, circleMoved, endMovement);
+colorChanged('box');
+
+
+  $('#palette_side_tab').click(function() {
+    var toggleBot = $(this).css('right') == "259px" ? "0px" : "259px";
+    $(this).animate({'right': toggleBot}, 150, "swing");
+    $('#controls_wrapper').animate({width:'toggle'}, 150, "swing");  
+});
+
+function lock_palette(){
+
+    if (palette_locked == false) {
+        palette_locked = true;
+        $('.palette').css('border', '1px solid black');
+        $('#lock_palette').attr('class', 'canvas_icon fa fa-2x fa-lock');
+        $('#lock_icon_label').html('locked');
+        $('#lock_icon_label').css('left', '11px');
+        $('#lock_button').css('background-color', '#bbb');
+        
+    } 
+    else {
+        palette_locked = false;
+        $('.palette').css('border', '1px solid grey');
+        $('#lock_palette').attr('class', 'canvas_icon fa fa-2x fa-unlock-alt');
+        $('#lock_icon_label').html('lock');
+        $('#lock_icon_label').css('left', '17px');
+        $('#lock_button').css('background-color', 'white');
+        
+    }
+        
+}
+
+function toggle_popup(element){
+        $(element).toggle();
+        var pic_name = document.getElementById('image_name');
+        pic_name.value = '';
+    }
+    
+function show_signup() {
+    send_image_string();
+    $('#save_fields').hide();
+    $('#signup_fields').show();
+}
+
+{% if user_form.errors or image_form.errors %}
+
+$(window).on('load',function(){
+        $('#save_and_signup_modal').modal('show');
+    });
+
+{% endif %}
+
+
+/* when user presses 'save', convert the canvas image data to an image string and populate
+the hidden form input with this value */
+$('#palette_save_button').click(function(){
+  $('#id_image_string').val(canvas.toDataURL("image/png"));
+})
+
+/* show the palette or values tabs on click */
+$('#values_tab').click(function() {
+  $('#picker_values_wrapper').css('z-index', '2');
+  $('#palette_wrapper').css('z-index', '1');
+  $('#values_tab').css('text-decoration', 'underline');
+  $('#palette_tab').css('text-decoration', 'none');
+})
+
+/* show the palette or values tabs on click */
+$('#palette_tab').click(function() {
+  $('#picker_values_wrapper').css('z-index', '1');
+  $('#palette_wrapper').css('z-index', '2');
+  $('#values_tab').css('text-decoration', 'none');
+  $('#palette_tab').css('text-decoration', 'underline');
+})
+
+function match_canvas_colour() {
+  console.log(matching_mode_on);
+  if (matching_mode_on == false) {
+    matching_mode_on = true;
+    $('#match_button').css('background-color', '#bbb');
+    $('#match_button_label').html('matching');
+    $('#match_button_label').css('left', '7px');
+    console.log('now matching ' + matching_mode_on);
+  } else {
+    matching_mode_on = false;
+    $('#match_button').css('background-color', 'white');
+    $('#match_button_label').html('match');
+    $('#match_button_label').css('left', '12px');
+    console.log('turn off ' + matching_mode_on);
+  }
+}
+
+</script>
+
+{% endblock %}

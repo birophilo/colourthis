@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<html>
+
+<head>
+
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'font-awesome.css' %}">
+
+
+<script src="{% static 'jquery-2.2.2.min.js' %}"></script>
+<script src="{% static 'bootstrap.min.js' %}"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar" style="position: relative;">
+  <button class="navbar-toggler hidden-md-up navbar-right" style="float:right; position: relative; top: 8px;" type="button" onclick="$('#hidden_nav').slideToggle(100)">
+    <span class="fa fa-bars fa-2x blue_icon_colour"></span>
+  </button>
+  <div class="navbar-brand" id="nav_pic">
+    <a href="{% url 'home' %}"><img src="{% static 'ctlogo.jpg' %}" height="27"></a>
+  </div>
+  <div class="collapse navbar-toggleable-sm" id="nav1">&nbsp;
+    <ul class="nav navbar-nav pull-sm-right">
+      <!--li class="nav-item"><a href="/shop/">Shop</a></li-->
+      
+      {% if request.user.is_authenticated %}
+      <li class="nav-item"><a href="{% url 'home' %}"><strong>{{ user.first_name }}</strong></a></li>
+      <li class="nav-item navbar_button">
+        <form method="post" action="/accounts/logout/">{% csrf_token %}
+          <button type="submit" 
+          class="btn btn-sm login_button">Log out</button>
+        </form></a></li>
+      {% else %}
+      <li class="nav-item navbar_button">
+        <a href="{% url 'account_signup' %}">
+          <button class="btn btn-sm signup_button">Sign up</button>
+        </a>
+        <a href="{% url 'account_login' %}">
+          <button class="btn btn-sm login_button">Login</button>
+        </a>
+      </li>
+      {% endif %}
+      
+    </ul>
+  </div>
+  
+<div id="hidden_nav" id="hidden_nav">
+  <ul class="nav navbar-nav">
+    <li class="nav-item navbar_button">
+      <a href="{% url 'account_signup' %}">
+        <button class="btn btn-sm signup_button">Sign up</button>
+      </a>
+      <a href="{% url 'account_login' %}">
+        <button class="btn btn-sm login_button">Login</button></a></li>
+  </ul>
+</div>
+
+<main>
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+colourthis/settings.py
+*.pyc
+*.sqlite3
